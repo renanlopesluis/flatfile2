@@ -1,0 +1,27 @@
+package com.renanll.flatfile.model;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+@Getter
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public class SalesDataRow extends DataRow {
+	
+	private Long id;
+	private List<Item> items;
+	private String salesmanName;
+
+	public Boolean hasSalesmanNamed(String salesmanName) {
+		return this.salesmanName.equals(salesmanName);
+	}
+	
+	public BigDecimal getSaleTotalAmount() {
+		return items.stream().map((x) -> x.getTotalPrice()).reduce((x, y) -> x.add(y)).get();
+	}
+	
+}

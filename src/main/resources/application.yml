@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: flatfile2
+
+application:
+  file:
+    directory:
+      in: "/data/in"
+      out: "/data/out/%s.done.dat"
+    extension: ".dat"
+    linebreak: "\n"
+  statistics:
+    cron-job: 0/3 * * * * *
