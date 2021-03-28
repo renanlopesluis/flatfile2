@@ -22,18 +22,22 @@ public class DATFileStream extends FileStream {
 	public void write(List<String> lines) throws IOException {
 		File file = new File(super.path);
 		file.getParentFile().mkdirs();
+		OutputStream outputStream = null;
 		try {
-			OutputStream outputStream = new FileOutputStream(file);
-			file.createNewFile();
+			outputStream = new FileOutputStream(file);
+			if(file.createNewFile()) {
 				for (String line : lines) {
 					outputStream.write(line.getBytes());
 					outputStream.write(lineBreak.getBytes());
 				}
-			
-			outputStream.close();
+			}
 		} catch (IOException e) {
 			log.error("An error occurred while writting files {}", e);
 			throw e;
+		} finally {
+			if(outputStream != null){
+				outputStream.close();
+			}
 		}
 	}
 
@@ -47,6 +51,7 @@ public class DATFileStream extends FileStream {
 				lines.add(reader.nextLine());
 			}
 			reader.close();
+			is.close();
 		} catch (IOException e) {
 			log.error("An error occurred while reading files {}", e);
 			throw e;
@@ -55,8 +60,8 @@ public class DATFileStream extends FileStream {
 	}
 
 	@Override
-	public void delete(File file) {
-		file.delete();		
+	public void delete(File file) throws IOException {
+		if(file.delete()) throw new IOException();
 	}
 
 }

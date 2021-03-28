@@ -14,5 +14,5 @@ public abstract class FileStream {
 	
 	public abstract void write(List<String> lines) throws IOException;
 	public abstract List<String> read() throws IOException;
-	public  abstract void delete(File file);
+	public  abstract void delete(File file) throws IOException;
 }
