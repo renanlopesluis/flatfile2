@@ -2,6 +2,7 @@ package com.renanll.flatfile.io;
 
 import com.renanll.flatfile.config.FileConfig;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Getter
 @Component
 @AllArgsConstructor
 public class FileManager {

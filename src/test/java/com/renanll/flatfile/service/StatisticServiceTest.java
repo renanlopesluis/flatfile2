@@ -57,6 +57,7 @@ public class StatisticServiceTest {
 
 		when(fileManager.getAllFilesFromDirectory()).thenReturn(paths);
 		when(fileManager.extractFileName(any(Path.class))).thenReturn(FILENAME);
+		when(fileManager.getFileConfig()).thenReturn(fileConfig);
 		when(fileConfig.getOutPath()).thenReturn(OUT_PATH);
 		when(fileConfig.getLineBreak()).thenReturn(LINE_BREAK);
 		when(summarizerService.summarize(anyList())).thenReturn(expected);

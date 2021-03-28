@@ -3,7 +3,6 @@ package com.renanll.flatfile.service;
 import com.renanll.flatfile.converter.Converter;
 import com.renanll.flatfile.converter.FlatFileConverter;
 import com.renanll.flatfile.io.DATFileStream;
-import com.renanll.flatfile.config.FileConfig;
 import com.renanll.flatfile.io.FileManager;
 import com.renanll.flatfile.io.FileStream;
 import com.renanll.flatfile.model.DataRow;
@@ -22,8 +21,7 @@ public class DataRowStatisticService implements StatisticService {
 	
 	private final SummarizerService summarizerService;
 	private final FileManager fileManager;
-	private final FileConfig fileConfig;
-	
+
 	@Override
 	public void process() throws Exception {
 		List<Path> paths = fileManager.getAllFilesFromDirectory();
@@ -35,7 +33,7 @@ public class DataRowStatisticService implements StatisticService {
 	}
 	
 	private List<String> readFile(Path path) throws IOException {
-		FileStream file = new DATFileStream(path.toString(), fileConfig.getLineBreak());
+		FileStream file = new DATFileStream(path.toString(), fileManager.getFileConfig().getLineBreak());
 		List<String> lines = file.read();
 		file.delete(path.toFile());
 		return lines;
@@ -45,8 +43,8 @@ public class DataRowStatisticService implements StatisticService {
 		String fileName = fileManager.extractFileName(path);
 		Summary summary = summarizerService.summarize(rows);
 		FileStream fileStream = new DATFileStream(
-				String.format(fileConfig.getOutPath().toString(), fileName),
-				fileConfig.getLineBreak());
+				String.format(fileManager.getFileConfig().getOutPath().toString(), fileName),
+				fileManager.getFileConfig().getLineBreak());
 
 		fileStream.write(summary.toLines());
 	}
