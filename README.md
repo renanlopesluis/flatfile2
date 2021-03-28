@@ -6,12 +6,12 @@ A funcionalidade manual se encontra em 'localhost:8080/swagger-ui.html' na api '
 
 <br/>
 
-**Sonarqube Ratings**
+### Sonarqube Ratings
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=renanlopesluis_flatfile2&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=renanlopesluis_flatfile2)[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=renanlopesluis_flatfile2&metric=coverage)](https://sonarcloud.io/dashboard?id=renanlopesluis_flatfile2)[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=renanlopesluis_flatfile2&metric=code_smells)](https://sonarcloud.io/dashboard?id=renanlopesluis_flatfile2)[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=renanlopesluis_flatfile2&metric=bugs)](https://sonarcloud.io/dashboard?id=renanlopesluis_flatfile2)[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=renanlopesluis_flatfile2&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=renanlopesluis_flatfile2)[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=renanlopesluis_flatfile2&metric=ncloc)](https://sonarcloud.io/dashboard?id=renanlopesluis_flatfile2)[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=renanlopesluis_flatfile2&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=renanlopesluis_flatfile2)
 
 <br/>
 
-**UML Class Diagram**
+### UML Class Diagram
 ![alt text](https://github.com/renanlopesluis/flatfile2/blob/master/UML%20Diagram.jpg)
 
 <br/>
