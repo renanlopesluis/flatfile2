@@ -25,7 +25,7 @@ public class DATFileStream extends FileStream {
 		OutputStream outputStream = null;
 		try {
 			outputStream = new FileOutputStream(file);
-			if(file.createNewFile()) {
+			if(!file.createNewFile()) {
 				for (String line : lines) {
 					outputStream.write(line.getBytes());
 					outputStream.write(lineBreak.getBytes());
@@ -60,8 +60,8 @@ public class DATFileStream extends FileStream {
 	}
 
 	@Override
-	public void delete(File file) throws IOException {
-		if(file.delete()) throw new IOException();
+	public void delete(File file)  {
+		file.delete();
 	}
 
 }
