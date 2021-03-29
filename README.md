@@ -32,6 +32,7 @@ Flatfile fora desenvolvido utilizando a linguagem Java utilizando funcionalidade
 <br/>
 
 **Notas importantes**
+- Qualidade: 92,3% de cobertura de testes;
 - Dada a natureza principal (vendas) do projeto, algumas tipagens de dados foram escolhidas especificamente em algumas modelo:
   - O tipo Long para id em SalesDataRow (já que uma nova venda é algo que frequentemente ocorrerá, ids exorbitantes não seriam raros);
   - O tipo BigDecimal para valores monetários como salary em SalesmanDataRow e price em Item (já que estamos lidando com dinheiro e a precisão é extremamente importante).
