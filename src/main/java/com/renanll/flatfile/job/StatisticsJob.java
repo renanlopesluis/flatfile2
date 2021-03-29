@@ -18,7 +18,9 @@ public class StatisticsJob {
     @Scheduled(cron = "${application.statistics.cron-job}")
     public void autoProcess() throws Exception {
         try {
+            log.info("Preparing to process statistics");
             statisticService.process();
+            log.info("Statistics have been successfully processed");
         } catch (Exception e) {
             log.error("An error occurred during the statistics processing {}", e);
             throw e;

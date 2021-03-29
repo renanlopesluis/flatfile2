@@ -42,7 +42,13 @@ public class SalesSummarizerService implements SummarizerService {
 	}
 	
 	private BigDecimal getSalesTotalAmount(List<SalesDataRow> rows) {
-		return rows.stream().map((x) -> x.getSaleTotalAmount()).reduce((x, y) -> x.add(y)).get();
+		 Optional<BigDecimal> total = rows.stream()
+				 .map((x) -> x.getSaleTotalAmount())
+				 .reduce((x, y) -> x.add(y));
+		 if(total.isPresent()){
+		 	return total.get();
+		 }
+		 return new BigDecimal(0);
 	}
 
 	private Long getTheMostExpensiveSaleId(List<DataRow> rows) {

@@ -60,8 +60,8 @@ public class DATFileStream extends FileStream {
 	}
 
 	@Override
-	public void delete(File file)  {
-		file.delete();
+	public void delete(File file)  throws IOException{
+		if(!file.delete()) throw new IOException("Cannot delete file");
 	}
 
 }

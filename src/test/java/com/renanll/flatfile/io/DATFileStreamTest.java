@@ -14,16 +14,18 @@ import java.util.List;
 
 public class DATFileStreamTest {
 
-    private final Path IN_PATH = Paths.get(System.getProperty("user.dir") + "/data/in");
+    private final String FOLDER = "/data/in/";
+    private final Path IN_PATH = Paths.get(System.getProperty("user.dir") + FOLDER);
     private final String EXTENSION = ".dat";
+    private final String FILE_NAME = "data";
     private FileStream fileStream;
     private IOException error;
 
     @Before
     public void setUp(){
-        final String fileName = "data";
+
         final String lineBreak = "\n";
-        fileStream = new DATFileStream(IN_PATH +"/"+ fileName + EXTENSION, lineBreak);
+        fileStream = new DATFileStream(IN_PATH +"/"+ FILE_NAME + EXTENSION, lineBreak);
     }
 
     @After
@@ -61,12 +63,19 @@ public class DATFileStreamTest {
     @Test
     public void shouldRemoveAFile(){
         try {
+            final Path inPath = Paths.get(System.getProperty("user.dir") + FOLDER + FILE_NAME + EXTENSION);
             fileStream.write(ContentStub.build());
-            fileStream.delete(IN_PATH.toFile());
+            fileStream.delete(inPath.toFile());
         } catch (IOException e) {
             error = e;
         }finally {
             Assert.assertNull(error);
         }
+    }
+
+    @Test(expected = IOException.class)
+    public void shouldNotRemoveAFile() throws IOException{
+        fileStream.write(ContentStub.build());
+        fileStream.delete(IN_PATH.toFile());
     }
 }

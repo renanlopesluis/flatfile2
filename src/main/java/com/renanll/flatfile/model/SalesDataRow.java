@@ -5,7 +5,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @AllArgsConstructor
@@ -21,7 +23,12 @@ public class SalesDataRow extends DataRow {
 	}
 	
 	public BigDecimal getSaleTotalAmount() {
-		return items.stream().map((x) -> x.getTotalPrice()).reduce((x, y) -> x.add(y)).get();
+		Optional<BigDecimal> total = items.stream().map((x) -> x.getTotalPrice())
+				.reduce((x, y) -> x.add(y));
+		if(total.isPresent()){
+			return total.get();
+		}
+		return new BigDecimal(0);
 	}
 	
 }
