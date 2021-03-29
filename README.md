@@ -3,7 +3,7 @@
 Este projeto permite a leitura de arquivos ".dat" localizados na pasta "data" - na raiz do projeto - e a partir disso, montar dados de venda baseados em 3 segmentos (customer, salesman e sales) identificados por um código.
 Diferente da primeira versão, este agora conta com um Swagger para disparar essa leitura de arquivos manualmente, bem como um Job que executa essa leitura automaticamente de 3 em 3 segundos. Cabe ressaltar que, ambas as formas vão executar a leitura das informações e escrita das estatísticas se existir algum arquivo com o devido conteúdo na pasta 'in' dentro da pasta 'data' que se encontra na raiz do projeto.
 - A funcionalidade manual se encontra em 'localhost:8080/swagger-ui.html' na api '/v1/statistics/manual-processing'.
-- Para poder ser processado, o arquivo 'data.dat' deve estar na pasta 'data/in' que está na raiz do projeto.
+- Para poder ser processado, o arquivo 'data.dat' deve estar na pasta 'in', localizada na pasta 'data' que está na raiz do projeto.
 - O arquivo 'data.dat' pode ser encontrado na pasta 'samples', também contida na raiz do projeto.
 
 <br/>
